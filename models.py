@@ -3,6 +3,12 @@ class Identifier:
         self.lattes = lattes
         self.orcid = orcid
 
+    def completeness(self):
+        if (not self.lattes and self.orcid) or (self.lattes and not self.orcid):
+            return 1
+        else:
+            return 0
+
 class Author:
     def __init__(self, nationality, birthCountry, birthCity, birthState, lattes, orcid):
         self.identifier = Identifier(lattes, orcid)
