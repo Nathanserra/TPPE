@@ -17,6 +17,20 @@ class Author:
         self.birthCity = birthCity
         self.birthState = birthState
 
+    def completeness(self):
+        completeness = 0
+        if self.nacionality:
+            completeness += 0.125
+        if self.birthCountry:
+            completeness += 0.125
+        if self.birthCity:
+            completeness += 0.125
+        if self.birthState:
+            completeness += 0.125
+        
+        return completeness + (self.identifier.completeness()/2)
+        
+
 class Article:
     def __init__(self, title, publicationDate, language):
         self.title = title
