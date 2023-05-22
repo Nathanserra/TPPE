@@ -11,3 +11,6 @@ def test_indetifier_completeness():
     assert author2.identifier.completeness() == 1
     assert author3.identifier.completeness() == 0
     assert author4.identifier.completeness() == 1
+
+def test_author_completeness():
+    assert author1.completeness() == 0.5
