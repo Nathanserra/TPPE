@@ -28,7 +28,9 @@ class Author:
         if self.birthState:
             completeness += 0.125
         
-        return completeness + (self.identifier.completeness()/2)
+        completeness += self.identifier.completeness() / 2
+
+        return completeness
         
 
 class Article:
