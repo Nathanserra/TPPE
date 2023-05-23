@@ -42,6 +42,21 @@ class Article:
 
     def addAuthor(self, author):
         self.authors.append(author)
+    
+    def completeness(self):
+        completeness = 0
+
+        if self.title:
+            completeness += 0.25
+        if self.publicationDate:
+            completeness += 0.25
+        if self.language:
+            completeness += 0.25
+
+        if self.authors:
+            completeness += self.authors[0].completeness() / 4
+        
+        return completeness
 
     
     
