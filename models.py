@@ -1,3 +1,5 @@
+import json
+
 class Identifier:
     def __init__(self, lattes, orcid):
         self.lattes = lattes
@@ -8,6 +10,7 @@ class Identifier:
             return 1
         else:
             return 0
+
 
 class Author:
     def __init__(self, nationality, birthCountry, birthCity, birthState, lattes, orcid):
@@ -58,5 +61,32 @@ class Article:
         
         return completeness
 
+class JsonReader:
+    def __init__(self, file_path):
+        self.file_path = file_path
+
+    def read_json(self):
+        with open(self.file_path, 'r') as file:
+            data = json.load(file)
+        return data
     
+    def get_articles(self):
+        data = self.read_json()
+        list_articles = []
+
+        for article in data:
+            artcl = Article(article['title'], article['language'], article['publicationDate'])
+
+            for author in article['authors']:
+                nationality = author.get("nacionality", None)
+                birthCountry = author.get("birthCountry", None)
+                birthCity = author.get("birthCity", None)
+                birthState = author.get("birthState", None)
+                lattes = author.get("identifier.lattes", None)
+                orcid = author.get("identifier.orcid", None)
+                artcl.addAuthor(Author(nationality, birthCountry, birthCity, birthState, lattes, orcid))
+
+            list_articles.append(artcl)
+
+        return list_articles
     

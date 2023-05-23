@@ -28,6 +28,7 @@ article4.addAuthor(author4)
 article4.addAuthor(author5)
 article4.addAuthor(author6)
 
+
 def test_indetifier_completeness():
     assert author1.identifier.completeness() == 0 
     assert author2.identifier.completeness() == 1
