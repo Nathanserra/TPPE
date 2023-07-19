@@ -1,9 +1,4 @@
-# T1_TPPE ✨
-
-## Alunos 👨‍🎓
-| Matrícula   | Aluno                      |
-|-------------|----------------------------|
-| 17/0112004  | Nathan Fernandes Sales de Serra |
+# TP1 ✨
 
 ## Instalação 💻
 
